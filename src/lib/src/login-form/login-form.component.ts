@@ -158,7 +158,7 @@ export class TsLoginFormComponent implements OnChanges {
    * Trigger a form reset if `triggerFormReset` is changed to TRUE
    * (explanation at `resetForm` method)
    *
-   * @param {Object} changes The inputs that have changed
+   * @param changes - The inputs that have changed
    */
   public ngOnChanges(changes: SimpleChanges): void {
     if (changes.hasOwnProperty('triggerFormReset') && changes.triggerFormReset.currentValue) {
@@ -169,9 +169,9 @@ export class TsLoginFormComponent implements OnChanges {
   /**
    * Helper method to get a form control
    *
-   * @param {String} name The name of the form control
-   * @param {FormGroup} form The primary form group
-   * @return {AbstractControl} control The requested form control
+   * @param name - The name of the form control
+   * @param form - The primary form group
+   * @return The requested form control
    */
   public getControl(name: string, form: FormGroup = this.loginForm): AbstractControl {
     return form.get(name)

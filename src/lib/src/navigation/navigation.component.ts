@@ -211,7 +211,7 @@ export class TsNavigationComponent implements OnInit, AfterViewInit {
   /**
    * Clone the nav items and split into the initially visible/hidden lists
    *
-   * @param {Array} items The complete list of navigation items
+   * @param items - The complete list of navigation items
    */
   private setUpInitialArrays(items: TsNavigationItem[]): void {
     // Clone the items so we can work freely with the array.

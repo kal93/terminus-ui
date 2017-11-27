@@ -1,9 +1,9 @@
 /**
  * Return an object containing arrays split by property
  *
- * @param {Array} array The array to split
- * @param {String} property The object property to split by
- * @return {Object} An object containing arrays separated by property value
+ * @param array - The array to split
+ * @param property - The object property to split by
+ * @return An object containing arrays separated by property value
  */
 export function groupBy(array: any[], property: string) {
 
