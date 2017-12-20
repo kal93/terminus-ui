@@ -81,6 +81,8 @@ const config = {
     es5Entry: path.join(rootFolder, 'out-tsc', 'lib-es5', `${libName}.js`),
     libFinalOutputFile: path.join(rootFolder, 'dist-temp', `bundles`, `${libName}.umd.js`),
     libFinalOutputMinifiedFile: path.join(rootFolder, 'dist-temp', `bundles`, `${libName}.umd.min.js`),
+    libFinalCjsOutputFile: path.join(rootFolder, 'dist-temp', `bundles`, `${libName}.cjs.js`),
+    libFinalCjsOutputMinifiedFile: path.join(rootFolder, 'dist-temp', `bundles`, `${libName}.cjs.min.js`),
     scss: {
       helpersInputs: [
         path.join(rootFolder, 'src/lib', 'src/scss/helpers/_typography.scss'),
@@ -174,6 +176,13 @@ const rollupConfig = {
     globals: GLOBALS,
     format: 'umd',
   },
+  commonJsOutput: {
+    name: camelCase(config.libName),
+    file: config.paths.libFinalOutputFile,
+    sourcemap: true,
+    globals: GLOBALS,
+    format: 'cjs',
+  }
 };
 
 
@@ -307,6 +316,24 @@ gulp.task('bundleMinified', () => {
 });
 
 
+gulp.task('bundle-cjs', () => {
+  return rollup.rollup(rollupConfig.input).then((bundle) => {
+    return bundle.generate(rollupConfig.commonJsOutput).then((result) => {
+      // Create bundles dir
+      recursiveMkDir(path.join(config.paths.distTempFolder, `bundles`));
+
+      // Write the output file
+      fs.writeFileSync(config.paths.libFinalCjsOutputFile, result.code);
+
+      // Write the map file
+      fs.writeFileSync(`${config.paths.libFinalCjsOutputFile}.map`, result.map);
+    });
+  });
+});
+
+
+
+
 /**
  * Copy package files to dist
  */
@@ -424,6 +451,7 @@ gulp.task('generate:build', gulp.series(
   'copy-package-files',
   'bundle',
   'bundleMinified',
+  'bundle-cjs',
   'generate:exposed-scss',
   'generate:css',
   'overwrite-dist',

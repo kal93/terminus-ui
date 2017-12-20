@@ -2,7 +2,7 @@
   "name": "@terminus/ui",
   "version": "0.0.0-development",
   "description": "Terminus UI Library",
-  "main": "./bundles/ui.umd.js",
+  "main": "./bundles/ui.cjs.js",
   "typings": "./ui.d.ts",
   "author": "@terminus",
   "license": "MIT",
