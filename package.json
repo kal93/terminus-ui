@@ -141,7 +141,7 @@
     "@angular/router": "5.1.2",
     "@compodoc/compodoc": "1.0.5",
     "@semantic-release/github": "2.2.3",
-    "@semantic-release/npm": "2.4.0",
+    "@semantic-release/npm": "2.7.0",
     "@types/jasmine": "2.8.3",
     "@types/jest": "22.0.1",
     "@types/node": "8.5.2",
