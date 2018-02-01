@@ -21,7 +21,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
 import { TsWindowService } from './../services/window/window.service';
-import { TsWindowServiceMock } from './../services/window/window.service.mock';
+import { TsWindowServiceMock } from './../../testing/mocks/window.service.mock';
 import { TsPaginatorComponent } from './../paginator/paginator.component';
 import { TsPaginatorModule } from './../paginator/paginator.module';
 import { TsSortDirective } from './../sort/sort.directive';

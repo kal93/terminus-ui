@@ -12,7 +12,7 @@
     "./typings.d.ts"
   ],
   "include": [
-    "./src/utilities/testing/*"
+    "./src/testing/*"
   ],
   "exclude": [
     "**/*.spec.ts",

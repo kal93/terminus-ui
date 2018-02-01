@@ -24,6 +24,7 @@ const gulpRemoveEmptyLines = require('gulp-remove-empty-lines');
 const gulpConcat           = require('gulp-concat');
 const gulpReplace          = require('gulp-replace');
 const cloneDeep            = require('lodash.clonedeep');
+
 // For dev
 const gulpPrint            = require('gulp-print');
 
@@ -243,7 +244,7 @@ gulp.task('compile-ngc', () => {
   .then(() => {
     return ngc(['-p', `${config.paths.tempLibFolder}/tsconfig.json`], (error) => {
       if (error) {
-        throw new Error('compile-ngc-es5 compilation failed: ' + error);
+        throw new Error('compile-ngc compilation failed: ' + error);
       }
     });
   });
@@ -259,6 +260,21 @@ gulp.task('compile-ngc-es5', () => {
     return ngc(['-p', `${config.paths.tempLibFolder}/tsconfig.es5.json`], (error) => {
       if (error) {
         throw new Error('compile-ngc-es5 compilation failed: ' + error);
+      }
+    });
+  });
+});
+
+
+/**
+ * Compile Testing to ES2015
+ */
+gulp.task('compile-testing-ngc', () => {
+  return Promise.resolve()
+  .then(() => {
+    return ngc(['-p', `${config.paths.srcFolder}/testing/tsconfig.json`], (error) => {
+      if (error) {
+        throw new Error('compile-testing-ngc compilation failed: ' + error);
       }
     });
   });
@@ -319,6 +335,17 @@ gulp.task('copy-package-files', () => {
     path.join(config.paths.es2015OutputFolder, '**/*.d.ts'),
   ])
     .pipe(gulp.dest(config.paths.distTempFolder));
+});
+
+
+/**
+ * Copy testing directory to dist
+ */
+gulp.task('copy-testing-files', () => {
+  return gulp.src([
+    path.join(config.paths.tempLibFolder, 'testing/**/*'),
+  ])
+    .pipe(gulp.dest(path.join(config.paths.distTempFolder, 'testing')));
 });
 
 
@@ -421,7 +448,9 @@ gulp.task('generate:build', gulp.series(
   'inline-resources',
   'compile-ngc',
   'compile-ngc-es5',
+  'compile-testing-ngc',
   'copy-package-files',
+  'copy-testing-files',
   'bundle',
   'bundleMinified',
   'generate:exposed-scss',

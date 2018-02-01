@@ -1,8 +1,9 @@
-import { ChangeDetectorRefMock } from './../utilities/testing/mocks/changeDetectorRef.mock';
 import { fakeAsync, tick } from '@angular/core/testing';
 
+import { ChangeDetectorRefMock } from './../../testing/mocks/changeDetectorRef.mock';
 import { TsNavigationComponent } from './navigation.component';
 import { TsNavigationItem } from './../utilities/interfaces/';
+
 
 const NAV_ITEMS_MOCK: TsNavigationItem[] = [
   {

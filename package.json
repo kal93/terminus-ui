@@ -125,7 +125,8 @@
     "@angular/forms": "5.1.2",
     "@angular/material": "5.0.2",
     "@angular/platform-browser": "5.1.2",
-    "@angular/router": "5.1.2"
+    "@angular/router": "5.1.2",
+    "rxjs": "5.5.6"
   },
   "devDependencies": {
     "@angular/animations": "5.1.2",
@@ -208,7 +209,6 @@
     "rollup-plugin-commonjs": "8.2.6",
     "rollup-plugin-node-resolve": "3.0.0",
     "rollup-plugin-uglify": "2.0.1",
-    "rxjs": "5.5.6",
     "sass-lint": "1.12.1",
     "sass-module-importer": "1.4.0",
     "scssfmt": "1.0.3",
@@ -247,7 +247,7 @@
     ],
     "collectCoverageFrom": [
       "src/lib/src/**/!(*.module|*.interface|*.constant|*.mock|*.d).ts",
-      "!src/lib/src/utilities/testing/**",
+      "!src/lib/src/testing/**",
       "!src/lib/src/utilities/rxjs-lift-hack.ts",
       "!src/lib/src/module.ts"
     ],

@@ -1,7 +1,7 @@
 import { FormBuilder } from '@angular/forms';
 
 import { TsLoginFormComponent } from './login-form.component';
-import { TsValidatorsServiceMock } from './../services/validators/validators.service.mock';
+import { TsValidatorsServiceMock } from './../../testing/mocks/validators.service.mock';
 
 
 describe(`TsLoginFormComponent`, () => {

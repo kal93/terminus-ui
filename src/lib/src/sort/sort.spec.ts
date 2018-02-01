@@ -27,7 +27,7 @@ import { map } from 'rxjs/operators/map';
 import {
   dispatchMouseEvent,
   wrappedErrorMessage,
-} from './../utilities/testing';
+} from './../../testing';
 import { TsTableModule } from './../table/table.module';
 import { TsSortDirective } from './sort.directive';
 import { TsSortModule } from './sort.module';

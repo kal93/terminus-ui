@@ -1,6 +1,7 @@
-import { ElementRefMock } from './../utilities/testing/mocks/elementRef.mock';
+import { ElementRefMock } from './../../testing/mocks/elementRef.mock';
 import { TsLoadingOverlayDirective } from './loading-overlay.directive';
-import { TsWindowServiceMock } from './../services/window/window.service.mock';
+import { TsWindowServiceMock } from './../../testing/mocks/window.service.mock';
+
 
 const componentFactoryResolver: any = null;
 const applicationRef: any = null;

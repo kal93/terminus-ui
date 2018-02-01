@@ -3,9 +3,9 @@ import {
   tick,
 } from '@angular/core/testing';
 import { TsCopyComponent } from './copy.component';
-import { TsWindowServiceMock } from '../services/window/window.service.mock';
-import { TsDocumentServiceMock } from '../services/document/document.service.mock';
-import { ElementRefMock } from '../utilities/testing/mocks/elementRef.mock';
+import { TsWindowServiceMock } from './../../testing/mocks/window.service.mock';
+import { TsDocumentServiceMock } from './../../testing/mocks/document.service.mock';
+import { ElementRefMock } from './../../testing/mocks/elementRef.mock';
 
 
 describe(`TsCopyComponent`, () => {
